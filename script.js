@@ -7,6 +7,7 @@ const users = [
 
 let currentUser = null;
 
+// Function to handle login
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -30,6 +31,7 @@ function login() {
     }
 }
 
+// Function to submit a vote
 function submitVote() {
     if (currentUser && !currentUser.voted) {
         const selectedCandidate = document.getElementById('candidate').value;
@@ -56,23 +58,37 @@ function submitVote() {
         .then(result => {
             alert(`Thank you for voting for ${selectedCandidate}!`);
             document.getElementById('vote').style.display = 'none';
-            showResults();
+            showResults();  // แสดงผลการลงคะแนนหลังจากโหวตเสร็จ
         })
         .catch(error => console.error('Error!', error.message));
     }
 }
 
-
+// Function to show results
 function showResults() {
+    fetchResults(); // ดึงข้อมูลจาก Google Sheet แล้วแสดงผล
+}
+
+// Function to fetch voting results from Google Sheet
+function fetchResults() {
     const resultsContent = document.getElementById('resultsContent');
     resultsContent.innerHTML = '';  // Clear previous results
 
-    const votedUsers = users.filter(user => user.voted && !user.isAdmin);
-    resultsContent.innerHTML += `<p>Total votes: ${votedUsers.length}</p>`;
+    // URL ของ Google Apps Script ที่ได้จากการ Deploy พร้อมฟังก์ชัน doGet สำหรับดึงข้อมูล
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwB1Zk3IkATCbqFSnCYnvX32IMzK9lz2z46MRLq8n3swBekRqMht4pUHRO8ZIv-FFkU/exec';
 
-    votedUsers.forEach(user => {
-        resultsContent.innerHTML += `<p>User: ${user.username} has voted</p>`;
-    });
+    // ใช้ fetch เพื่อดึงข้อมูลจาก Google Apps Script (doGet)
+    fetch(scriptURL)
+        .then(response => response.json())
+        .then(data => {
+            const votedUsers = data.filter(user => user.voted);  // กรองเฉพาะผู้ใช้ที่โหวตแล้ว
+            resultsContent.innerHTML += `<p>Total votes: ${votedUsers.length}</p>`;
 
-    document.getElementById('result').style.display = 'block';
+            votedUsers.forEach(user => {
+                resultsContent.innerHTML += `<p>User: ${user.username} voted for: ${user.candidate}</p>`;
+            });
+
+            document.getElementById('result').style.display = 'block';
+        })
+        .catch(error => console.error('Error fetching results!', error.message));
 }
