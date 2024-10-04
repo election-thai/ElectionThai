@@ -11,7 +11,7 @@ async function login(event) {
 
         if (teacher) {
             sessionStorage.setItem("loggedInUser", JSON.stringify(teacher));
-            window.location.href = "teacher.html";  // เปลี่ยนไปยังหน้า teacher.html
+            window.location.href = "elec1.html";  // เปลี่ยนไปยังหน้า elec1.html
         } else {
             document.getElementById("error").textContent = "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
         }
