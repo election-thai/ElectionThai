@@ -25,24 +25,6 @@
             <p id="error" class="error-message"></p>
         </form>
     </div>
-
-    <script>
-        // ฟังก์ชันสำหรับล็อกอิน (ยังไม่มีการเชื่อมต่อจริง)
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // ตัวอย่างตรวจสอบ Username และ Password
-            if (username === "teacher" && password === "1234") {
-                alert("ยินดีต้อนรับเข้าสู่ระบบ!");
-                document.getElementById('error').textContent = "";
-                // ไปยังหน้าถัดไปหรือดำเนินการเพิ่มเติม
-            } else {
-                document.getElementById('error').textContent = "รหัสผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!";
-            }
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
