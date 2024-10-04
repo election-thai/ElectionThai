@@ -15,7 +15,7 @@ body {
 
 /* การจัดรูปแบบ header */
 header {
-    background-color: #A73B24;
+    background-color: #1f4e3a;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -43,7 +43,7 @@ header {
 }
 
 header button {
-    background-color: #ff8f00;
+    background-color: #30906a;
     color: #fff;
     padding: 8px 15px;
     border: none;
