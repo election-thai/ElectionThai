@@ -36,12 +36,32 @@ function submitVote() {
 
         // Record the vote
         currentUser.voted = true;
-        alert(`Thank you for voting for ${selectedCandidate}!`);
 
-        document.getElementById('vote').style.display = 'none';
-        showResults();
+        // ส่งข้อมูลการลงคะแนนไปยัง Google Apps Script
+        const voteData = {
+            username: currentUser.username,
+            candidate: selectedCandidate
+        };
+
+        // URL ของ Google Apps Script ที่ได้จากการ Deploy
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwB1Zk3IkATCbqFSnCYnvX32IMzK9lz2z46MRLq8n3swBekRqMht4pUHRO8ZIv-FFkU/exec';
+
+        // ใช้ fetch ส่งข้อมูลไปยัง Google Apps Script
+        fetch(scriptURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(voteData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(`Thank you for voting for ${selectedCandidate}!`);
+            document.getElementById('vote').style.display = 'none';
+            showResults();
+        })
+        .catch(error => console.error('Error!', error.message));
     }
 }
+
 
 function showResults() {
     const resultsContent = document.getElementById('resultsContent');
