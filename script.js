@@ -46,7 +46,7 @@ function submitVote() {
         };
 
         // URL ของ Google Apps Script ที่ได้จากการ Deploy
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwB1Zk3IkATCbqFSnCYnvX32IMzK9lz2z46MRLq8n3swBekRqMht4pUHRO8ZIv-FFkU/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxrixl9oyhb2rLhfQ4Ap_4haW9hK02A8YjR6HWgv3lHMX3E-bCye-OliShuUQHDzI3M/exec';
 
         // ใช้ fetch ส่งข้อมูลไปยัง Google Apps Script
         fetch(scriptURL, {
