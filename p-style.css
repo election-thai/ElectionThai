@@ -147,3 +147,22 @@ main h1 {
           display: grid;
     }
 }
+
+
+#subjectSelect {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #dff3eb;
+  color: #fff;
+  font-family: "Pridi", serif;
+}
+
+
+/* เปลี่ยนฟอนต์สำหรับตัวเลือกทั้งหมดใน select */
+#subjectSelect option {
+  font-family: "Pridi", serif;
+  color: #fff; 
+  background-color: #bbffc7;
+}
