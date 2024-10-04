@@ -154,8 +154,8 @@ main h1 {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background: #dff3eb;
-  color: #fff;
+  background: #bbffc7;
+  color: #000;
   font-family: "Pridi", serif;
 }
 
@@ -163,6 +163,6 @@ main h1 {
 /* เปลี่ยนฟอนต์สำหรับตัวเลือกทั้งหมดใน select */
 #subjectSelect option {
   font-family: "Pridi", serif;
-  color: #fff; 
-  background-color: #bbffc7;
+  color: #000; 
+  background-color: #dff3eb;
 }
