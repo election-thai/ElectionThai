@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Voting System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br><br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Voting Form -->
+    <div id="vote" style="display:none;">
+        <h2>Vote for Your Candidate</h2>
+        <label for="candidate">Choose your candidate:</label>
+        <select id="candidate">
+            <option value="Candidate 1">Candidate 1</option>
+            <option value="Candidate 2">Candidate 2</option>
+            <option value="Candidate 3">Candidate 3</option>
+        </select><br><br>
+        <button onclick="submitVote()">Submit Vote</button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="result" style="display:none;">
+        <h2>Voting Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
